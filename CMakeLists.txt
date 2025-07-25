@@ -41,7 +41,7 @@ add_library(core_nexus_options INTERFACE)
 target_compile_options(core_nexus_options INTERFACE
     # MSVC
     $<$<CXX_COMPILER_ID:MSVC>:
-        /W4 /EHs-c- /GR- /permissive- /Zc:__cplusplus
+        /W4 /EHs- /GR- /permissive- /Zc:__cplusplus
         $<$<BOOL:${CORE_NEXUS_WARNINGS_AS_ERRORS}>:/WX>
     >
     
