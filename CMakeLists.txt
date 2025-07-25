@@ -67,27 +67,6 @@ target_compile_options(core_nexus_options INTERFACE
     >
 )
 
-# 构建编译项
-target_compile_options(core_nexus_options INTERFACE
-  # Debug
-  $<$<CONFIG:Debug>:
-    $<$<CXX_COMPILER_ID:MSVC>:/Od /Zi /RTC1>
-    $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-O0 -g3 -DDEBUG>
-  >
-
-  # RelWithDebInfo
-  $<$<CONFIG:RelWithDebInfo>:
-    $<$<CXX_COMPILER_ID:MSVC>:/O2 /Zi /DNDEBUG>
-    $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-O2 -g -DNDEBUG>
-  >
-
-  # Release
-  $<$<CONFIG:Release>:
-    $<$<CXX_COMPILER_ID:MSVC>:/O2 /DNDEBUG>
-    $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-O3 -DNDEBUG>
-  >
-)
-
 # 编译定义
 target_compile_definitions(core_nexus_options INTERFACE
     $<$<CXX_COMPILER_ID:MSVC>:_HAS_EXCEPTIONS=0>
